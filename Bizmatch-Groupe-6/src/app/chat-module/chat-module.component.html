@@ -1,0 +1,222 @@
+<div class="container-fluid">
+  <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+    <div class="card-body px-4 py-3">
+      <div class="row align-items-center">
+        <div class="col-9">
+          <h4 class="fw-semibold mb-8">Chat Application</h4>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a class="text-muted " href="index-2.html">Dashboard</a></li>
+              <li class="breadcrumb-item" aria-current="page">Chats</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-3">
+          <div class="text-center mb-n5">
+            <img src="../../assets/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card overflow-hidden chat-application">
+    <div class="d-flex align-items-center justify-content-between gap-3 m-3 d-lg-none">
+      <button class="btn btn-primary d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#chat-sidebar" aria-controls="chat-sidebar">
+        <i class="ti ti-menu-2 fs-5"></i>
+      </button>
+      <form class="position-relative w-100">
+        <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh" placeholder="Search Contact">
+        <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
+      </form>
+    </div>
+    <div class="d-flex">
+      <div class="w-30 d-none d-lg-block border-end user-chat-box">
+        <div class="px-4 pt-9 pb-6">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center">
+              <div class="position-relative">
+                <img src="../../assets/images/profile/user-1.jpg" alt="user1" width="54" height="54" class="rounded-circle">
+                <span class="position-absolute bottom-0 end-0 p-1 badge rounded-pill bg-success">
+                          <span class="visually-hidden">New alerts</span>
+                        </span>
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-semibold mb-2">{{currentuserlnom}} {{currentuserfnom}}</h6>
+                <p class="mb-0 fs-2">{{currentuserrole}}</p>
+              </div>
+            </div>
+            <div class="dropdown">
+              <a class="text-dark fs-6 nav-icon-hover " href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="ti ti-dots-vertical"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item d-flex align-items-center gap-2 border-bottom" href="javascript:void(0)"><span><i class="ti ti-settings fs-4"></i></span>Setting</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0)"><span><i class="ti ti-help fs-4"></i></span>Help and feadback</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0)"><span><i class="ti ti-layout-board-split fs-4"></i></span>Enable split View mode</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2 border-bottom" href="javascript:void(0)"><span><i class="ti ti-table-shortcut fs-4"></i></span>Keyboard shortcut</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0)"><span><i class="ti ti-login fs-4"></i></span>Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!--<div class="dropdown">
+            <a class="text-muted fw-semibold d-flex align-items-center" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Recent Chats<i class="ti ti-chevron-down ms-1 fs-5"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="javascript:void(0)">Sort by time</a></li>
+              <li><a class="dropdown-item border-bottom" href="javascript:void(0)">Sort by Unread</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)">Hide favourites</a></li>
+            </ul>
+          </div>-->
+        </div>
+        <div class="app-chat">
+          <ul class="chat-users" style="height: calc(100vh - 200px)" data-simplebar>
+
+            <li *ngFor="let chat of chats" [class.selected]="currentSelectedChat === chat">
+              <a href="javascript:void(0)"
+                 class="px-4 py-3 bg-hover-light-black d-flex align-items-start justify-content-between chat-user"
+                 [attr.data-user-id]="chat.chat_id"
+                 (click)="selectChat(chat)">
+                <div class="d-flex align-items-center">
+          <span class="position-relative">
+            <img src="../../assets/images/profile/user-1.jpg" alt="user1" width="48" height="48" class="rounded-circle" />
+            <span class="position-absolute bottom-0 end-0 p-1 badge rounded-pill bg-success">
+              <span class="visually-hidden">New alerts</span>
+            </span>
+          </span>
+                  <div class="ms-3 d-inline-block w-75">
+                    <h6 class="mb-1 fw-semibold chat-title" [attr.data-username]="chat.name">{{ chat.name }}</h6>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-70 w-xs-100 chat-container">
+        <div class="chat-box-inner-part h-100">
+          <div class="chat-not-selected h-100 d-none">
+            <div class="d-flex align-items-center justify-content-center h-100 p-5">
+              <div class="text-center">
+                        <span class="text-primary">
+                          <i class="ti ti-message-dots fs-10"></i>
+                        </span>
+                <h6 class="mt-2">Open chat from the list</h6>
+              </div>
+            </div>
+          </div>
+          <div class="chatting-box d-block">
+            <div class="p-9 border-bottom chat-meta-user d-flex align-items-center justify-content-between">
+              <div class="hstack gap-3 current-chat-user-name">
+                <div class="position-relative">
+                  <img src="../../assets/images/profile/user-1.jpg" alt="user1" width="48" height="48" class="rounded-circle" />
+                  <span class="position-absolute bottom-0 end-0 p-1 badge rounded-pill bg-success">
+                            <span class="visually-hidden">New alerts</span>
+                          </span>
+                </div>
+                <div class="">
+                  <h6 class="mb-1 name fw-semibold"></h6>
+                  <p class="mb-0">{{currentuserfnom}}</p>
+                </div>
+              </div>
+              <ul class="list-unstyled mb-0 d-flex align-items-center">
+                <li>
+                  <!-- <a class="text-dark px-2 fs-7 bg-hover-primary nav-icon-hover position-relative z-index-5 " href="javascript:void(0)" type="button" data-bs-toggle="offcanvas" data-bs-target="#app-chat-offcanvas" aria-controls="offcanvasScrolling">
+                    <i class="ti ti-menu-2"></i>
+                  </a> -->
+                  <!--<a class="chat-menu text-dark px-2 fs-7 bg-hover-primary nav-icon-hover position-relative z-index-5" href="javascript:void(0)">
+                    <i class="ti ti-menu-2"></i>
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+            <div class="position-relative overflow-hidden d-flex">
+              <div class="position-relative d-flex flex-grow-1 flex-column">
+                <div class="chat-box p-9" style="height: calc(100vh - 442px)" data-simplebar>
+                  <div class="chat-list chat active-chat" >
+                    <ng-container *ngFor="let message of Messages">
+                      <div class="hstack gap-3 align-items-start mb-7 justify-content-start" *ngIf="message.sender === currentStaticUsername">
+                        <img src="../../assets/images/profile/user-8.jpg" alt="user8" width="40" height="40" class="rounded-circle" />
+                        <div>
+                          <h6 class="fs-2 text-muted">{{ message.sender }}, {{ message.t_stamp }}</h6>
+                          <div class="p-2 bg-light rounded-1 d-inline-block text-dark fs-3">{{ message.content }}</div>
+                        </div>
+                      </div>
+                      <div class="hstack gap-3 align-items-start mb-7 justify-content-end" *ngIf="message.sender !== currentStaticUsername">
+                        <div class="text-end">
+                          <h6 class="fs-2 text-muted">{{ message.sender }}, {{ message.t_stamp }}</h6>
+                          <div class="p-2 bg-light-info text-dark rounded-1 d-inline-block fs-3">{{ message.content }}</div>
+                        </div>
+                      </div>
+                      <!-- Add more conditions for different message senders if needed -->
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="px-9 py-6 border-top chat-send-message-footer">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-2 w-85">
+                      <a class="position-relative nav-icon-hover z-index-5" href="javascript:void(0)"> <i class="ti ti-mood-smile text-dark bg-hover-primary fs-7"></i></a>
+                      <input type="text" class="form-control message-type-box text-muted border-0 p-0 ms-2" placeholder="Type a Message" [(ngModel)]="message" />
+                    </div>
+                    <ul class="list-unstyledn mb-0 d-flex align-items-center">
+                      <li><a class="text-dark px-2 fs-7 bg-hover-primary nav-icon-hover position-relative z-index-5 " href="javascript:void(0)" (click)="sendMessage()"><i class="fas fa-paper-plane"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas offcanvas-start user-chat-box chat-offcanvas" tabindex="-1" id="chat-sidebar" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel"> Chats </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="px-4 pt-9 pb-6">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center">
+              <div class="position-relative">
+                <img src="../../assets/images/profile/user-1.jpg" alt="user1" width="54" height="54" class="rounded-circle">
+                <span class="position-absolute bottom-0 end-0 p-1 badge rounded-pill bg-success">
+                          <span class="visually-hidden">New alerts</span>
+                        </span>
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-semibold mb-2">curre</h6>
+                <p class="mb-0 fs-2">Marketing Director</p>
+              </div>
+            </div>
+            <div class="dropdown">
+              <a class="text-dark fs-6 nav-icon-hover " href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="ti ti-dots-vertical"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item d-flex align-items-center gap-2 border-bottom" href="javascript:void(0)"><span><i class="ti ti-settings fs-4"></i></span>Setting</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0)"><span><i class="ti ti-help fs-4"></i></span>Help and feadback</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0)"><span><i class="ti ti-layout-board-split fs-4"></i></span>Enable split View mode</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2 border-bottom" href="javascript:void(0)"><span><i class="ti ti-table-shortcut fs-4"></i></span>Keyboard shortcut</a></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0)"><span><i class="ti ti-login fs-4"></i></span>Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+          <!--<form class="position-relative mb-4">
+            <input type="text" class="form-control search-chat py-2 ps-5" id="text-srh" placeholder="Search Contact">
+            <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
+          </form>
+          <div class="dropdown">
+            <a class="text-muted fw-semibold d-flex align-items-center" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Recent Chats<i class="ti ti-chevron-down ms-1 fs-5"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="javascript:void(0)">Sort by time</a></li>
+              <li><a class="dropdown-item border-bottom" href="javascript:void(0)">Sort by Unread</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)">Hide favourites</a></li>
+            </ul>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,177 @@
+
+<!--                    <div class="mb-3">-->
+<!--                      <label>Date <span class="login-danger">*</span></label>-->
+<!--                      <input name="dateTime" [(ngModel)]="Reunion.dateTime" class="form-control" type="datetime-local" >-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                      <label>Status:<span class="login-danger">*</span></label>-->
+<!--                        <select class="form-control select" name="reunionStatus" [(ngModel)]="Reunion.reunionStatus" (change)="Change($event)" >-->
+<!--                          <option *ngFor="let type of types" [value]="type" [selected]="selectedType === type">{{type}}</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Bouton pour afficher les champs d'entrée &ndash;&gt;-->
+<!--                    <button (click)="toggleMeetInputs()" class="btn btn-primary">Afficher les champs Meet</button>-->
+
+<!--                    &lt;!&ndash; Champs d'entrée pour le lien Meet &ndash;&gt;-->
+<!--                    <div *ngIf="showMeetInputs">-->
+<!--&lt;!&ndash;        //              <input type="text" [(ngModel)]="meetLinkPart1" class="form-control" name="part1" disabled>&ndash;&gt;-->
+<!--                      <input type="text" [(ngModel)]="part2Addition" class="form-control" name="part2" (input)="updateMeetLink()" maxlength="3">-->
+<!--                      <input type="text" [(ngModel)]="part3Addition" class="form-control" name="part3" (input)="updateMeetLink()" maxlength="4">-->
+<!--                      <input type="text" [(ngModel)]="part4Addition" class="form-control" name="part4" (input)="updateMeetLink()" maxlength="3">-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash; Bouton pour générer le lien Meet &ndash;&gt;-->
+<!--&lt;!&ndash;                    <button (click)="generateMeetLink()" class="btn btn-primary">Générer le lien Meet</button>&ndash;&gt;-->
+
+<!--                    <div class="mb-3">-->
+<!--                      <label>Lien Meet</label>-->
+<!--                      <input type="text" ngModel class="form-control" name="meetingLink" [(ngModel)]="Reunion.meetingLink" [appDisableControl]="isDisabled">-->
+<!--                    </div>-->
+
+<!--                    <button routerLink="" type="submit" class="btn btn-primary" (click)="assignreunion(reunionForm.value)">Submit</button>-->
+<!--                  </form>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--                      <label for="exampleInputEmail1" class="form-label">Object</label>-->
+<!--                      <input type="text" class="form-control">-->
+<!--                    <div class="mb-3">-->
+<!--                      <label for="exampleInputEmail1" class="form-label">Description</label>-->
+<!--                      <div class="control-section">-->
+<!--                        <ejs-richtexteditor id='defaultRTE'>-->
+<!--                        </ejs-richtexteditor>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                      <label for="exampleInputEmail1" class="form-label">Project</label>-->
+<!--                      <select class="form-control select" name="participants">-->
+<!--                        <option >Project1</option>-->
+<!--                        <option >Project2</option>-->
+<!--                        <option >Project3</option>-->
+<!--                      </select>                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                      <label for="exampleInputEmail1" class="form-label">Status</label>-->
+<!--                      <input type="password" class="form-control" disabled>-->
+<!--                    </div>-->
+<div class="card">
+  <div class="card-header bg-primary">
+    <h4 class="mb-0 text-white">Quiz</h4>
+  </div>
+  <form #reunionForm="ngForm">
+    <div>
+      <div class="card-body">
+<!--        <h5>Reunion</h5>-->
+        <div class="row pt-3">
+<!--          <div class="col-md-6">-->
+<!--            <div class="mb-3">-->
+<!--              <label class="control-label">Employe</label>-->
+<!--              <input type="text" [(ngModel)]="Reunion.idEntreprise" class="form-control" name="idEntreprise" [appDisableControl]="isDisabled">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          &lt;!&ndash;/span&ndash;&gt;-->
+<!--          <div class="col-md-6">-->
+<!--            <div class="mb-3">-->
+<!--              <label class="control-label">Note Satisfaction /10</label>-->
+<!--              <select  [(ngModel)]="Reunion.idParticipants"  class="form-control select" name="idParticipants" multiple size="1">-->
+<!--                <option value="1">1</option>-->
+<!--              </select>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-6">-->
+<!--            <div class="mb-3">-->
+<!--              <label class="control-label">Description Besoin</label>-->
+<!--              <textarea name="subject" ngModel class="form-control" type="text" [(ngModel)]="Reunion.subject" ></textarea>-->
+<!--            </div>-->
+<!--          </div>-->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Note</label>
+              <div class="control-section">
+                <input name="description" type="number" [(ngModel)]="Reunion.Note" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Description</label>
+              <div class="control-section">
+                <ejs-richtexteditor name="description" [(ngModel)]="Reunion.description">
+                </ejs-richtexteditor>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Proposer Evenement</label>
+              <select  [(ngModel)]="Reunion.Evenement"  class="form-control select" name="idParticipants" multiple size="6">
+                <option value="1">soiree</option>
+                <option value="2">camping</option>
+                <option value="3">dinner</option>
+                <option value="4">padel</option>
+                <option value="5">certifications</option>
+              </select>
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+<!--        <div class="row">-->
+<!--          &lt;!&ndash;/span&ndash;&gt;-->
+<!--          <div class="col-md-6">-->
+<!--            <div class="mb-3">-->
+<!--              <label class="control-label">Date</label>-->
+<!--              <input name="dateTime" [(ngModel)]="Reunion.dateTime" class="form-control" type="datetime-local" >-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-6">-->
+<!--            <div class="mb-3">-->
+<!--              <label class="control-label">Status</label>-->
+<!--              <select class="form-control select" name="reunionStatus" [(ngModel)]="Reunion.reunionStatus" (change)="Change($event)" >-->
+<!--                <option *ngFor="let type of types" [value]="type" [selected]="selectedType === type">{{type}}</option>-->
+<!--              </select>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          &lt;!&ndash;/span&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--        &lt;!&ndash;/row&ndash;&gt;-->
+<!--        <button (click)="toggleMeetInputs()" class="btn btn-primary">Afficher les champs Meet</button>-->
+
+<!--        &lt;!&ndash; Champs d'entrée pour le lien Meet &ndash;&gt;-->
+<!--        <div *ngIf="showMeetInputs"  class="col-md-6">-->
+<!--          <div class="mb-3">-->
+<!--          &lt;!&ndash;        //              <input type="text" [(ngModel)]="meetLinkPart1" class="form-control" name="part1" disabled>&ndash;&gt;-->
+<!--          <input placeholder="XXX" type="text" [(ngModel)]="part2Addition" class="form-control" name="part2" (input)="updateMeetLink()" maxlength="3">-->
+<!--          <input placeholder="YYYY" type="text" [(ngModel)]="part3Addition" class="form-control" name="part3" (input)="updateMeetLink()" maxlength="4">-->
+<!--          <input placeholder="ZZZ" type="text" [(ngModel)]="part4Addition" class="form-control" name="part4" (input)="updateMeetLink()" maxlength="3">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="mb-3">-->
+<!--            <label class="control-label">Meet</label>-->
+<!--            <input type="text" ngModel class="form-control" name="meetingLink" [(ngModel)]="Reunion.meetingLink" [appDisableControl]="isDisabled">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        </div>-->
+      </div>
+      <div class="form-actions">
+        <div class="card-body border-top">
+          <button routerLink="" type="submit" class="btn btn-primary" (click)="assignreunion(reunionForm.value)">Submit</button>
+          <button
+            type="button"
+            class="btn btn-danger rounded-pill px-4 ms-2 text-white" [routerLink]="['']">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

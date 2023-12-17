@@ -1,0 +1,120 @@
+<div class="card">
+  <div class="card-header bg-primary">
+    <h4 class="mb-0 text-white">Ajouter Opportunite</h4>
+  </div>
+  <form #d="ngForm">
+    <div>
+      <div class="card-body">
+        <h5>Information De L'Opportunite</h5>
+        <div class="row pt-3">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Email De Prospect</label>
+              <input
+                type="text"
+                name="prospectEmail"
+                ngModel
+                class="form-control"
+                placeholder="Tapez Email"
+              />
+            </div>
+          </div>
+          <!--/span-->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Service</label>
+              <input
+                type="text"
+                name="service"
+                ngModel
+                class="form-control"
+                placeholder="Service En Question"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Date De Creation</label>
+              <input
+                type="date"
+                name="date"
+                ngModel
+                class="form-control"
+                placeholder="Description Besoin"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Lieu D'Existence</label>
+              <input
+                ngModel
+                type="text"
+                name="location"
+                class="form-control"
+                placeholder="Lieu D'Existence"
+              />
+            </div>
+          </div>
+
+          <!--/span-->
+        </div>
+        <!--/row-->
+        <div class="row">
+          <!--/span-->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Priorite</label>
+              <select
+                class="form-control form-select"
+                name="priority"
+                ngModel
+              >
+                <option value="HAUTE">HAUTE</option>
+                <option value="MOYENNE">MOYENNE</option>
+                <option value="BASSE">BASSE</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Prospect Status</label>
+              <select
+                class="form-control form-select"
+                name="prospectStatus"
+                ngModel
+              >
+                <option value="NOUVEAU">NOUVEAU</option>
+                <option value="ENCOURS">ENCOURS</option>
+                <option value="CONCLU">CONCLU</option>
+                <option value="PERDU">PERDU</option>
+              </select>
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </div>
+      <div class="form-actions">
+        <div class="card-body border-top">
+          <button
+            type="submit"
+            (click)="ajouterOpportunite(d.value)"
+            class="btn btn-success rounded-pill px-4"
+          >
+            <div class="d-flex align-items-center">
+              <i class="ti ti-device-floppy me-1 fs-4"></i>
+              Enregistrer
+            </div>
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger rounded-pill px-4 ms-2 text-white" routerLink="/listebesoin"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

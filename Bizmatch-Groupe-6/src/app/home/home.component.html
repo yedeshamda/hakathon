@@ -1,0 +1,71 @@
+<div>
+<table class="yedes">
+  <div class="t">Happy Level</div>
+  <app-emotion></app-emotion>
+</table>
+<table class="hamda">
+  <app-calendar></app-calendar>
+</table>
+  <div class="slider">
+    <input *ngFor="let i of entreprises; let idx = index" type="radio" name="testimonial" [id]="'t-' + (idx + 1)">
+    <div class="testimonials">
+      <label *ngFor="let i of entreprises; let idx = index" class="item" [for]="'t-' + (idx + 1)">
+        <h1>Spread love wherever you go.</h1>
+<!--        <h1>You are capable of amazing things.</h1>-->
+<!--        <h1>Believe in yourself and all that you are.</h1>-->
+      </label>
+    </div>
+    <br/>
+    <div class="dots">
+      <label *ngFor="let i of entreprises; let idx = index" [for]="'t-' + (idx + 1)"></label>
+    </div>
+  </div>
+  <script src="/assets/js/xd.js"></script>
+</div>
+<style>
+  .hamda {
+    width: 50%; /* Ajusta el ancho según sea necesario */
+    border-collapse: collapse; /* Para evitar espacios entre celdas */
+    margin-top: 20px; /* Puedes ajustar el margen superior según lo necesites */
+    margin-left: 350px;
+  }
+
+  .hamda th, .hamda td {
+    border: 1px solid #ddd; /* Bordes entre celdas */
+    padding: 8px; /* Espaciado interno de celdas */
+    text-align: left; /* Alineación del texto */
+  }
+
+  .hamda th {
+    background-color: rgba(55, 196, 227, 0.3); /* Color de fondo para las celdas de encabezado */
+  }
+  .yedes {
+    width: 23%;
+    border-collapse: collapse;
+    margin-top: -20px;
+    position: absolute;
+    margin-top: 55px;
+  }
+
+  .yedes th, .yedes td {
+    border: 1px solid #ddd; /* Bordes entre celdas */
+    padding: 8px; /* Espaciado interno de celdas */
+    text-align: left; /* Alineación del texto */
+  }
+
+  .yedes th {
+    background-color: rgba(55, 196, 227, 0.3); /* Color de fondo para las celdas de encabezado */
+  }
+  .t{
+    font-size: 18px;
+    font-weight: 600!important;
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+    padding-right: 1.5rem!important;
+    padding-left: 1.5rem!important;
+    background: #ff000000;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: #0000001f -1px 1px 5px 5px;
+  }
+</style>

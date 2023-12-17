@@ -1,0 +1,135 @@
+<div class="card">
+  <div class="card-header bg-primary">
+    <h4 class="mb-0 text-white">Modifier Besoin</h4>
+  </div>
+  <form #d="ngForm">
+    <div>
+      <div class="card-body">
+        <h5>Information Du Besoin</h5>
+        <div class="row pt-3">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Type De Besoin</label>
+              <input
+                type="text"
+                name="typeDeBesoin"
+                [(ngModel)]="besoinDetails.typeDeBesoin"
+                class="form-control"
+                placeholder="Tapez Votre Besoin"
+              />
+            </div>
+          </div>
+          <!--/span-->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Responsable Du Besoin</label>
+              <input
+                type="text"
+                id="lastName"
+                name="responsableDuBesoin"
+                [(ngModel)]="besoinDetails.responsableDuBesoin"
+                class="form-control"
+                placeholder="Responsable Du Besoin"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Description Besoin</label>
+              <input
+                type="text"
+                name="descriptionBesoin"
+                [(ngModel)]="besoinDetails.descriptionBesoin"
+                class="form-control"
+                placeholder="Description Besoin"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Service En Question</label>
+              <input
+                type="text"
+                [(ngModel)]="besoinDetails.serviceEnQuestion"
+                name="serviceEnQuestion"
+                class="form-control"
+                placeholder="Service En Question"
+              />
+            </div>
+          </div>
+
+          <!--/span-->
+        </div>
+        <!--/row-->
+        <div class="row">
+          <!--/span-->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Date Submission Besoin</label>
+              <input type="date" class="form-control" [(ngModel)]="besoinDetails.dateSubmissionBesoin"  name="dateSubmissionBesoin"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="control-label">Date Cloture Besoin</label>
+              <input type="date" class="form-control" [(ngModel)]="besoinDetails.dateClotureBesoin"  name="dateClotureBesoin"
+              />
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="control-label">Etat Du Besoin</label>
+            <select
+              class="form-control form-select"
+              name="etatDuBesoin"
+              data-placeholder="Choose a Category"
+              tabindex="1"
+              ngModel
+              [(ngModel)]="besoinDetails.etatDuBesoin"
+            >
+              <option value="ENCOURS">ENCOURS</option>
+              <option value="TERMINE">TERMINE</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3 has-danger">
+              <label hidden="hidden" class="control-label">Numero Entreprise</label>
+              <input hidden="hidden"
+                     type="text"
+                     name="idEntreprise"
+                     [(ngModel)]="besoinDetails.idEntreprise"
+                     class="form-control"
+                     placeholder="Responsable Du Besoin"
+              />
+            </div>
+        </div>
+        </div>
+        <!--/row-->
+      </div>
+      <div class="form-actions">
+        <div class="card-body border-top">
+          <button
+            type="submit"
+            class="btn btn-success rounded-pill px-4"
+
+          >
+            <div class="d-flex align-items-center" (click)="modifierbesoin(d.value)">
+              <i class="ti ti-device-floppy me-1 fs-4"></i>
+              Enregistrer
+            </div>
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger rounded-pill px-4 ms-2 text-white" routerLink="/listebesoin"
+
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="mb-3">Plan Strategique</h5>
+        <form #d="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  name="strategicPlanDescription"
+                  class="form-control"
+                  [(ngModel)]="strategicPlanDetails.strategicPlanDescription"
+                  id="tb-fname"
+                  placeholder="Enter Name here"
+                >
+                <label for="tb-fname">Description Du Plan</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  [(ngModel)]="strategicPlanDetails.strategicPlanStartDate"
+                  name="strategicPlanStartDate"
+                  class="form-control"
+                  id="tb-email"
+                  placeholder="name@example.com"
+                />
+                <label for="tb-email">Date Debut Plan Strategique</label>
+              </div>
+            </div>
+            <div hidden="hidden" class="col-md-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  [(ngModel)]="strategicPlanDetails.entrepriseId"
+                  name="entrepriseId"
+                  class="form-control"
+                  placeholder="name@example.com"
+                />
+                <label for="tb-email">EntrepriseId</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  name="strategicPlanEndDate"
+                  type="date"
+                  [(ngModel)]="strategicPlanDetails.strategicPlanEndDate"
+                  class="form-control"
+                  id="tb-pwd"
+                  placeholder="Password"
+                />
+                <label for="tb-pwd">Date Fin Plan Strategique</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  [(ngModel)]="strategicPlanDetails.strategicPlanObjective"
+                  name="strategicPlanObjective"
+                  class="form-control"
+                  id="tb-cpwd"
+                  placeholder="Password"
+                />
+                <label for="tb-cpwd">Objective Du Plan Strategique</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <select
+                  class="form-control form-select"
+                  [(ngModel)]="strategicPlanDetails.strategicPlanStatus"
+                  name="strategicPlanStatus"
+                  data-placeholder="Choose a Category"
+                  tabindex="1"
+                >
+                  <option value="INACTIF">INACTIF</option>
+                  <option value="ENCOURS">ENCOURS</option>
+                  <option value="TERMINE">TERMINE</option>
+                </select>
+                <label for="tb-cpwd">Objective Du Plan Strategique</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="d-md-flex align-items-center mt-3">
+                <div class="ms-auto mt-3 mt-md-0">
+                  <button
+                    (click)="modifierPlanStrategic(d.value)"
+                    type="submit"
+                    class="btn btn-info font-medium rounded-pill px-4"
+                  >
+                    <div class="d-flex align-items-center">
+                      <i class="ti ti-send me-2 fs-4"></i>
+                      Submit
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

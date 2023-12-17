@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <!-- --------------------------------------------------- -->
+  <!--  Form Basic Start -->
+  <!-- --------------------------------------------------- -->
+  <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+
+  </div>
+  <div class="card w-100 position-relative overflow-hidden">
+    <button  *ngIf="username1=='entreprise'" href="#" data-bs-toggle="modal" data-bs-target="#add_event" class="btn btn-primary m-lg-auto w-20 mb-8 form-control" (click)="addev()">
+      <i class="ti ti-plus fs-4"></i> Add Event
+    </button>
+
+    <div  class="px-4 py-3 border-bottom align-items-center">
+      <h5 class="card-title fw-semibold mb-0 lh-sm">Calendrier</h5>
+
+    </div>
+    <div class="card-body p-4">
+      <div class="table-responsive rounded-2 mb-4">
+        <table class="table border text-nowrap customize-table mb-0 align-middle">
+          <tbody>
+          <div class="col-auto text-end float-end ms-auto download-grp" >
+            <a href="javascript:;" class=" me-2"  (click)="openPDF()"><img src="assets/images/icons/pdf-icon-01.svg" alt=""></a>
+            <a href="javascript:;" class=" me-2"><img src="assets/images/icons/pdf-icon-02.svg" alt=""></a>
+            <a href="javascript:;" class=" me-2"><img src="assets/images/icons/pdf-icon-03.svg" alt=""></a>
+            <a href="javascript:;"><img src="assets/images/icons/pdf-icon-04.svg" alt=""></a>
+          </div>
+          <div *ngIf="username1=='entreprise'" class="mb-3">
+            <label class="form-label">Participants</label>
+            <select class="form-control select" name="idParticipants" ngModel [(ngModel)]="Entrepriseparticipant" (ngModelChange)="onParticipantChange()">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <table class="table table-hover datatable dt-responsive nowrap">
+            <div id="calendar" class="container" >
+              <full-calendar  [options]="calendarOptions" ></full-calendar>
+            </div>
+          </table>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

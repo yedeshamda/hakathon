@@ -1,0 +1,269 @@
+<!--<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"-->
+<!--     data-sidebar-position="fixed" data-header-position="fixed">-->
+<!--  <div class="body-wrapper">-->
+<!--    <div class="container-fluid">-->
+
+<!--      <div class="col-lg-20 d-flex align-items-strech">-->
+<!--        <div class="card w-100">-->
+<!--          <div class="card-body">-->
+<!--            <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">-->
+<!--              <div class="mb-3 mb-sm-0">-->
+<!--                <tr>-->
+<!--                  <th><h5 class="card-title fw-semibold">Reunion List</h5></th>-->
+<!--                  <th>&nbsp;</th>-->
+<!--                  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>-->
+<!--                  <br>-->
+<!--                  <th>-->
+<!--                    <div class="doctor-search-blk">-->
+<!--                      <div class="top-nav-search table-search-blk">-->
+<!--                        <form>-->
+<!--                          <div class="input-group">-->
+<!--                            <input type="text" class="form-control icon-search" placeholder="Search">-->
+<!--                          </div>-->
+<!--                        </form>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </th>-->
+<!--                </tr>-->
+<!--              </div>-->
+<!--              <div *ngIf="username1=='entreprise'">-->
+<!--                <Button [routerLink]="['/addreunion', username]" class="btn btn-primary">Add Reunion</Button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--              <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                <div class="card-body">-->
+<!--                  <table class="table table-hover datatable dt-responsive nowrap">-->
+<!--                    <thead>-->
+
+<!--                    <tr>-->
+<!--                      <th *ngIf="username1=='partner'" scope="col">Partner</th>-->
+<!--                      <th scope="col">Entreprise</th>-->
+<!--                      <th scope="col">Date</th>-->
+<!--                      <th scope="col">Status</th>-->
+<!--                      <th scope="col">Lien Reunion</th>-->
+<!--                      <th scope="col">Participants</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tr>-->
+<!--                    <tr *ngFor="let i of table ">-->
+
+<!--                    <td *ngIf="username1=='partner'">{{username}}</td>-->
+<!--                    <td>{{i.idEntreprise}}</td>-->
+<!--                      <td>{{i.dateTime}}</td>-->
+<!--                    <td *ngIf="i.reunionStatus=='SCHEDULED'"><button class="custom-badge status-purple" disabled>{{i.reunionStatus}}</button></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='RE_SCHEDULED'"><button class="custom-badge status-purple" disabled>{{i.reunionStatus}}</button></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='SELECTED'"><button class="custom-badge status-green" disabled>{{i.reunionStatus}}</button></td>-->
+<!--                      <td *ngIf="i.reunionStatus=='REJECTED'"><button class="custom-badge status-red" disabled>{{i.reunionStatus}}</button></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='CANCELLED'"><button class="custom-badge status-orange" disabled>{{i.reunionStatus}}</button></td>-->
+
+<!--                    <td *ngIf="i.reunionStatus=='REJECTED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-grey" disabled>Meet</button></a></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='CANCELLED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-grey" disabled>Meet</button></a></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='SCHEDULED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-blue" disabled>Meet</button></a></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='RE_SCHEDULED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-blue" disabled>Meet</button></a></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='SELECTED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-blue">Meet</button></a></td>-->
+<!--                    <td *ngIf="i.reunionStatus=='CANCELLED'"><button class="custom-badge status-red ">{{i.reunionStatus}}</button></td>-->
+<!--                      <td>{{i.idParticipants}}</td>-->
+<!--                    <td *ngIf="username1=='partner' && (i.reunionStatus=='SCHEDULED' || i.reunionStatus=='RE_SCHEDULED')" >-->
+<!--                      <ul>-->
+<!--                        <li><a (click)="accepter(i.id)"> <button class="custom-badge status-green">ACCEPT</button></a></li>-->
+<!--                        <li></li>-->
+<!--                        <li><a (click)="rejeter(i.id)"> <button class="custom-badge status-red">DECLINE</button></a></li>-->
+<!--                      </ul>-->
+<!--                    </td>-->
+<!--                      <td>-->
+<!--                        <div  class="dropdown">-->
+<!--                          <a  *ngIf="username1=='entreprise'" href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown" aria-expanded="true">-->
+<!--                            <i class="mdi mdi-dots-horizontal font-size-18"></i>-->
+<!--                          </a>-->
+<!--                          <ul class="dropdown-menu dropdown-menu-end" *ngIf="username1=='entreprise' && i.reunionStatus!='PASSED'" >-->
+<!--                            <li><a class="dropdown-item"><i class="mdi mdi-pencil font-size-16 text-success me-1"></i>Edit</a></li>-->
+<!--                            <li><a class="dropdown-item" data-bs-target="#add_event" (click)="addev()"><i class="mdi mdi-pencil font-size-16 text-success me-1"></i>Delete</a></li>-->
+<!--                          </ul>-->
+<!--                        </div>-->
+<!--                      </td>-->
+<!--                    </tr>-->
+<!--                  </table>-->
+<!--                  <pagination-controls></pagination-controls>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<style>.icon-search {
+  /*background-image: url('assets/images/icons/search-normal.svg');*/
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-right: 40px; /* Ajustez la valeur en fonction de la taille de votre icône */
+  padding-left: 22px; /* Ajustez la valeur en fonction de la taille de votre icône */
+
+}
+.custom-badge {
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 12px;
+  min-width: 115px;
+  padding: 5px 15px;
+  text-align: center;
+  border: 0;
+}
+.status-red,
+a.status-red {
+  background-color: #ffe5e6;
+  color: #fe0000;
+}
+.status-green,
+a.status-green {
+  background: rgba(0, 211, 199, 0.1);
+  color: #00D3C7;
+}
+.status-orange,
+a.status-orange {
+  background-color: #fef5e4;
+  color: #ff9b01;
+}
+.status-blue,
+a.status-blue {
+  background-color: #e5f3fe;
+  color: #008cff;
+}
+.status-purple,
+a.status-purple {
+  background-color: #f3e7fd;
+  color: #8f13fd;
+}
+.status-pink,
+a.status-pink {
+  background-color: #ffe5f6;
+  color: #ff01a2;
+}
+.status-grey,
+a.status-grey {
+  background-color: #ddd;
+  color: #818181;
+}
+.btn-grey {
+  background-color: #b2b2b2;
+  border: 1px solid #b2b2b2;
+}
+</style>
+<div class="container-fluid">
+  <!-- --------------------------------------------------- -->
+  <!--  Form Basic Start -->
+  <!-- --------------------------------------------------- -->
+  <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+    <div class="card-body px-4 py-3">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <h4 class="fw-semibold mb-8">Quiz de mois</h4>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="text-muted " href="index-2.html">Quiz</a>
+              </li>
+<!--              <li class="breadcrumb-item" aria-current="page">Liste Des Reunion</li>-->
+            </ol>
+          </nav>
+        </div>
+        <div class="col-3">
+          <div class="text-center mb-n5">
+            <img src="../../dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card w-100 position-relative overflow-hidden">
+    <Button *ngIf="username1=='entreprise'" [routerLink]="['/addreunion', username]" class="btn btn-primary m-lg-auto w-20 mb-8 form-control"> <i class="ti ti-plus fs-4"></i>Ajouter Reunion</Button>
+
+    <div  class="px-4 py-3 border-bottom align-items-center">
+      <h5 class="card-title fw-semibold mb-0 lh-sm">Liste Des Reunions</h5>
+
+    </div>
+    <div class="card-body p-4">
+      <div class="table-responsive rounded-2 mb-4">
+        <table class="table border text-nowrap customize-table mb-0 align-middle">
+          <thead class="text-dark fs-4">
+          <tr>
+            <th *ngIf="username1=='partner'"><h6 class="fs-4 fw-semibold mb-0">Partner</h6></th>
+            <th><h6 class="fs-4 fw-semibold mb-0">Entreprise</h6></th>
+            <th><h6 class="fs-4 fw-semibold mb-0">Date</h6></th>
+            <th><h6 class="fs-4 fw-semibold mb-0">Status</h6></th>
+            <th><h6 class="fs-4 fw-semibold mb-0">Lien Reunion</h6></th>
+            <th><h6 class="fs-4 fw-semibold mb-0">Participants</h6></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let i of table | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+            <td *ngIf="username1=='partner'">{{username}}</td>
+            <td><p class="mb-0 fw-normal fs-4">{{i.idEntreprise}}</p></td>
+            <td><p class="mb-0 fw-normal fs-4">{{i.dateTime}}</p></td>
+            <td *ngIf="i.reunionStatus=='SCHEDULED'"><button class="custom-badge status-purple" disabled>{{i.reunionStatus}}</button></td>
+            <td *ngIf="i.reunionStatus=='RE_SCHEDULED'"><button class="custom-badge status-purple" disabled>{{i.reunionStatus}}</button></td>
+            <td *ngIf="i.reunionStatus=='SELECTED'"><button class="custom-badge status-green" disabled>{{i.reunionStatus}}</button></td>
+            <td *ngIf="i.reunionStatus=='REJECTED'"><button class="custom-badge status-red" disabled>{{i.reunionStatus}}</button></td>
+            <td *ngIf="i.reunionStatus=='CANCELLED'"><button class="custom-badge status-orange" disabled>{{i.reunionStatus}}</button></td>
+            <td *ngIf="i.reunionStatus=='TERMINATED'"><button class="custom-badge status-grey" disabled>{{i.reunionStatus}}</button></td>
+            <td *ngIf="i.reunionStatus=='PASSED'"><button class="custom-badge status-gray" disabled>{{i.reunionStatus}}</button></td>
+
+            <td *ngIf="i.reunionStatus=='REJECTED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-red" disabled>Meet</button></a></td>
+            <td *ngIf="i.reunionStatus=='CANCELLED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-orange" disabled>Meet</button></a></td>
+            <td *ngIf="i.reunionStatus=='SCHEDULED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-blue" disabled>Meet</button></a></td>
+            <td *ngIf="i.reunionStatus=='RE_SCHEDULED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-blue" disabled>Meet</button></a></td>
+            <td *ngIf="i.reunionStatus=='SELECTED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-green">Meet</button></a></td>
+            <td *ngIf="i.reunionStatus=='TERMINATED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-grey" disabled>Meet</button></a></td>
+            <td *ngIf="i.reunionStatus=='PASSED'"><a (click)="accederLien(i.meetingLink)"> <button class="custom-badge status-gray" disabled>Meet</button></a></td>
+            <td><p class="mb-0 fw-normal fs-4">{{i.idParticipants}}</p></td>
+            <td *ngIf="username1=='partner' && (i.reunionStatus=='SCHEDULED' || i.reunionStatus=='RE_SCHEDULED')" >
+              <ul>
+                <li><a (click)="accepter(i.id)"> <button class="custom-badge status-green">ACCEPT</button></a></li>
+                <li></li>
+                <li><a (click)="rejeter(i.id)"> <button class="custom-badge status-red">DECLINE</button></a></li>
+              </ul>
+            </td>
+<!--            <td *ngIf="i.reunionStatus=='CANCELLED'"><button class="custom-badge status-red ">{{i.reunionStatus}}</button></td>-->
+            <td>
+              <h6 class="fs-4 fw-semibold mb-0">{{i.projectBudget}}</h6>
+            </td>
+            <td>
+              <h6 class="fs-4 fw-semibold mb-0">{{ i.projectMangerEmail}}</h6>
+            </td>
+            <td>
+              <h6 class="fs-4 fw-semibold mb-0">{{i.projectStartDate}}</h6>
+            </td>
+            <td>
+              <h6 class="fs-4 fw-semibold mb-0">{{i.estimatedProjectEndDate}}</h6>
+            </td>
+            <td>
+              <h6 class="fs-4 fw-semibold mb-0">{{i.objective}}</h6>
+            </td>
+            <td>
+              <span class="badge bg-light-orange text-success fw-semibold fs-2">{{i.projectStatus }}</span>
+            </td>
+            <td *ngIf="username1=='entreprise'">
+              <div class="dropdown dropstart">
+                <a href="#" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="ti ti-dots-vertical fs-6"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="username1=='entreprise' && (i.reunionStatus=='SCHEDULED' || i.reunionStatus=='RE_SCHEDULED')">
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center gap-3" [routerLink]="['/editreunion/'+username+'/'+i.id]"><i class="fs-4 ti ti-edit"></i>Modifier</a>
+                  </li>
+                  <li><a class="dropdown-item d-flex align-items-center gap-3" data-bs-target="#add_event" (click)="deleteEvent(i.id)"><i class="fs-4 ti ti-trash"></i>Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

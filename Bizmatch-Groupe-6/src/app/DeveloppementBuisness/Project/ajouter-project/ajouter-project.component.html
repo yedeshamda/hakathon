@@ -1,0 +1,164 @@
+<div class="row">
+  <div class="col-sm-12">
+    <!-- ---------------------
+                                        start Default Basic Forms
+                                    ---------------- -->
+    <div class="card">
+      <div class="card-body">
+        <h5>Ajouter Un Projet</h5>
+        <p class="card-subtitle mb-3">
+          Information Projet
+        </p>
+        <form #d="ngForm" class="form">
+          <div class="mb-3 row">
+            <label
+              for="example-text-input"
+              class="col-md-2 col-form-label"
+            >Nom Projet</label
+            >
+            <div class="col-md-10">
+              <input
+                name="projectName"
+                ngModel
+                class="form-control"
+                type="text"
+                placeholder="Nom Projet"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="example-search-input"
+              class="col-md-2 col-form-label"
+            >Description Projet</label
+            >
+            <div class="col-md-10">
+              <input
+                class="form-control"
+                type="textarea"
+                name="projectDescription"
+                ngModel
+                placeholder="Description Projet"
+                id="example-search-input"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="example-email-input"
+              class="col-md-2 col-form-label"
+            >Budget</label
+            >
+            <div class="col-md-10">
+              <input
+                class="form-control"
+                name="projectBudget"
+                ngModel
+                type="text"
+                placeholder="Budget"
+                id="example-email-input"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="example-url-input"
+              class="col-md-2 col-form-label"
+            >Email Chef Projet</label
+            >
+            <div class="col-md-10">
+              <input
+                class="form-control"
+                type="text"
+                ngModel
+                name="projectMangerEmail"
+                placeholder="Email Chef Projet"
+                id="example-url-input"
+              />
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label
+              for="example-date-input"
+              class="col-md-2 col-form-label"
+            >Date Debut Projet</label
+            >
+            <div class="col-md-10 mb-3">
+              <input
+                class="form-control"
+                type="date"
+                name="projectStartDate"
+                ngModel
+                id="example-date-input"
+              />
+            </div>
+            <label
+              for="example-date-input"
+              class="col-md-2 col-form-label"
+            >Date Prevu Fin Projet</label
+            >
+            <div class="col-md-10 mb-3">
+              <input
+                class="form-control"
+                type="date"
+                name="estimatedProjectEndDate"
+                ngModel
+              />
+            </div>
+            <label
+              for="example-date-input"
+              class="col-md-2 col-form-label"
+            >Objectif</label
+            >
+            <div class="col-md-10 mb-3">
+              <textarea
+                class="form-control"
+                type="text"
+                name="objective"
+                placeholder="Objectif/s"
+                ngModel></textarea>
+            </div>
+            <label
+              for="example-date-input"
+              class="col-md-2 col-form-label"
+            >Status Du Projet</label
+            >
+            <div class="col-md-10 mb-3">
+              <select
+                class="form-control form-select"
+                name="projectStatus"
+                data-placeholder="Choose a Category"
+                tabindex="1"
+                ngModel
+              >
+                <option value="PLANIFIE">PLANIFIE</option>
+                <option value="ENCOURS">ENCOURS</option>
+                <option value="TERMINE">TERMINE</option>
+              </select>
+            </div>
+            <div class="form-actions">
+              <div class="card-body border-top">
+                <button
+                  type="submit"
+                  class="btn btn-success rounded-pill px-4"
+                  (click)="ajouterprojet(d.value)"
+                >
+                  <div class="d-flex align-items-center">
+                    <i class="ti ti-device-floppy me-1 fs-4"></i>
+                    Enregistrer
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger rounded-pill px-4 ms-2 text-white" routerLink="/listeprofil"
+                >
+                  Annuler
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

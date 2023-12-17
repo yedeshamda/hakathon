@@ -1,0 +1,188 @@
+<!-- Sidebar Start -->
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div>
+    <div class="brand-logo d-flex align-items-center justify-content-between">
+      <a routerLink="/home" class="text-nowrap logo-img">
+        <img src="assets/images/logo/logo.png" class="dark-logo" width="180" alt="" />
+      </a>
+      <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+        <i class="ti ti-x fs-8 text-muted"></i>
+      </div>
+    </div>
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar>
+      <ul id="sidebarnav">
+        <!-- ============================= -->
+        <!-- Home -->
+        <!-- ============================= -->
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Home</span>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link"  [routerLink]="['']"  routerLinkActive="active"   aria-expanded="false">
+                  <span>
+                    <i class="ti ti-home"></i>
+                  </span>
+            <span class="hide-menu">Home</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Apps</span>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link"  [routerLink]="['chat']"   routerLinkActive="active"   aria-expanded="false">
+                  <span>
+                    <i class="ti ti-graph"></i>
+                  </span>
+            <span class="hide-menu">Anonymous Chat</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" [routerLink]="['/quiz','entreprise',1]" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-brand-zoom"></i>
+                  </span>
+            <span class="hide-menu">Quiz de mois</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"   aria-expanded="false">
+                  <span>
+                    <i class="ti ti-file-unknown"></i>
+                  </span>
+            <span class="hide-menu">Identification des Besoins</span>
+          </a>
+          <ul aria-expanded="false" class="collapse first-level">
+            <li class="sidebar-item">
+              <a [routerLink]="['/listebesoin']" class="sidebar-link">
+                <div class="round-16 d-flex align-items-center justify-content-center">
+                  <i class="ti ti-circle"></i>
+                </div>
+                <span class="hide-menu">Besoin</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/listeprofil']" class="sidebar-link">
+                <div class="round-16 d-flex align-items-center justify-content-center">
+                  <i class="ti ti-circle"></i>
+                </div>
+                <span class="hide-menu">Profil</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-eye-check"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu">Prestation de Services</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-calendar-event"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu"> Gestion des Événements</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-calendar-event"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu"> Gestion  des Conférences</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link" [routerLink]="['/calendar',username,username1]" aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-calendar-check"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu"> Calendrier</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-friends"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu"> Promotion des Partenariats</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-relation-one-to-one"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu"> Private Rooms</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-chart-arcs"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu">  Développement du Business</span>-->
+<!--          </a>-->
+<!--          <ul aria-expanded="false" class="collapse first-level">-->
+<!--            <li class="sidebar-item">-->
+<!--              <a [routerLink]="['/listestrategicplan']" class="sidebar-link">-->
+<!--                <div class="round-16 d-flex align-items-center justify-content-center">-->
+<!--                  <i class="ti ti-circle"></i>-->
+<!--                </div>-->
+<!--                <span class="hide-menu">Plan Strategique</span>-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li class="sidebar-item">-->
+<!--              <a [routerLink]="['/listeopportunity']" class="sidebar-link">-->
+<!--                <div class="round-16 d-flex align-items-center justify-content-center">-->
+<!--                  <i class="ti ti-circle"></i>-->
+<!--                </div>-->
+<!--                <span class="hide-menu">Opportunite</span>-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li class="sidebar-item">-->
+<!--              <a [routerLink]="['/listeproject']" class="sidebar-link">-->
+<!--                <div class="round-16 d-flex align-items-center justify-content-center">-->
+<!--                  <i class="ti ti-circle"></i>-->
+<!--                </div>-->
+<!--                <span class="hide-menu">Projet</span>-->
+<!--              </a>-->
+<!--            </li>-->
+
+<!--          </ul>-->
+<!--        </li>-->
+<!--        <li class="sidebar-item">-->
+<!--          <a class="sidebar-link"  routerLink="/home"   routerLinkActive="active"  aria-expanded="false">-->
+<!--                  <span>-->
+<!--                    <i class="ti ti-file-analytics"></i>-->
+<!--                  </span>-->
+<!--            <span class="hide-menu"> Pénétration des Marchés</span>-->
+<!--          </a>-->
+<!--        </li>-->
+
+
+      </ul>
+      <div class="unlimited-access hide-menu bg-light-primary position-relative my-7 rounded">
+        <div class="d-flex">
+          <div class="unlimited-access-title">
+            <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Not Just Working! <br> But Networking</h6>
+           </div>
+          <div class="unlimited-access-img">
+            <img src="assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>
